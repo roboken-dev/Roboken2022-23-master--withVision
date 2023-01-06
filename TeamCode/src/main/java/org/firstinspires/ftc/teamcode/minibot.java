@@ -51,16 +51,9 @@ public class minibot {
             (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double     DRIVE_SPEED             = 0.3;
 
+    public DcMotor lift;
     public DcMotor arm;
-    public Servo claw;
-    public DcMotor spin;
-    public DcMotor armspin;
-    public Servo swipe;
-    public CRServo blockspin;
-    public DistanceSensor distanceSensor;
-    public CRServo TESTING;
-   // public ColorSensor sensorColor;
-    //public DigitalChannel sensorTouch;
+
 
 
     HardwareMap hwMap = null;
@@ -77,15 +70,12 @@ public class minibot {
         motorBack = hwMap.dcMotor.get("motorBack");
         motorLeft = hwMap.dcMotor.get("motorLeft");
         motorRight =hwMap.dcMotor.get("motorRight");
-        TESTING = hwMap.crservo.get("testing");
-
+        lift = hwMap.dcMotor.get("lift");
         arm = hwMap.dcMotor.get("arm");
-        claw = hwMap.servo.get("claw");
-        spin = hwMap.dcMotor.get("spin");
-        armspin = hwMap.dcMotor.get("armspin");
-        swipe = hwMap.servo.get("swipe");
-        blockspin = hwMap.crservo.get("blockspin");
-        distanceSensor = hwMap.get(DistanceSensor.class, "distanceSensor");
+
+
+
+
 
         //sensorColor = hwMap.get(ColorSensor.class,"colorSensor");
         //sensorTouch = hwMap.get(DigitalChannel.class,"touchSensor");
@@ -99,8 +89,6 @@ public class minibot {
         motorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        armspin.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        spin.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         imu = hwMap.get(BNO055IMU.class, "imu");

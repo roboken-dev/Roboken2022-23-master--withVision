@@ -8,7 +8,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Signal Sleeve Test")
+@Autonomous(name = "Signal Sleeve Test with motion")
 public class VisionTestWMotion extends LinearOpMode {
 
     private SleeveDetection sleeveDetection;
@@ -39,24 +39,29 @@ public class VisionTestWMotion extends LinearOpMode {
         });
 
         while (!isStarted()) {
-            telemetry.addData("ROTATION: ", sleeveDetection.getPosition());
+            String Position = String.valueOf(sleeveDetection.getPosition());
+            telemetry.addData("ROTATION: ", Position);
             telemetry.update();
         }
 
         waitForStart();
+        sleep(500);
         String Position = String.valueOf(sleeveDetection.getPosition());
-        if (Position == "Right"){
-            telemetry.addData("I will go to the right", sleeveDetection.getPosition());
+        if (Position == ": Right"){
+            sleep(500);
+            telemetry.addData("moving", "I will go to the right");
             telemetry.update();
             sleep(3000);
         }
-        if (Position == "Left"){
-            telemetry.addData("I will go to the left", sleeveDetection.getPosition());
+        if (Position == ": Left"){
+            sleep(500);
+            telemetry.addData("moving", "I will go to the left");
             telemetry.update();
             sleep(3000);
         }
-        if (Position == "Center"){
-            telemetry.addData("I will go to the center", sleeveDetection.getPosition());
+        if (Position == ": Center"){
+            sleep(500);
+            telemetry.addData("moving", "I will go to the center");
             telemetry.update();
             sleep(3000);
         }
