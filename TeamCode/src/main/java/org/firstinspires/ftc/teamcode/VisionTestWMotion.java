@@ -39,31 +39,35 @@ public class VisionTestWMotion extends LinearOpMode {
         });
 
         while (!isStarted()) {
-            String Position = String.valueOf(sleeveDetection.getPosition());
-            telemetry.addData("ROTATION: ", Position);
+            telemetry.addData("ROTATION: ",sleeveDetection.getPosition());
             telemetry.update();
         }
 
         waitForStart();
         sleep(500);
-        String Position = String.valueOf(sleeveDetection.getPosition());
-        if (Position == ": Right"){
+        if(sleeveDetection.getPosition().equals(":RIGHT"));{
             sleep(500);
             telemetry.addData("moving", "I will go to the right");
             telemetry.update();
             sleep(3000);
         }
-        if (Position == ": Left"){
+        if (sleeveDetection.getPosition().equals(":LEFT")){
             sleep(500);
             telemetry.addData("moving", "I will go to the left");
             telemetry.update();
             sleep(3000);
         }
-        if (Position == ": Center"){
+        if (sleeveDetection.getPosition().equals(":CENTER")){
             sleep(500);
             telemetry.addData("moving", "I will go to the center");
             telemetry.update();
             sleep(3000);
         }
+        else {
+            telemetry.addData("moving", "I'm not working");
+            telemetry.update();
+            sleep(3000);
+        }
+
     }
 }
