@@ -39,6 +39,7 @@ public class minibot {
     public DcMotor motorLeft;
     public DcMotor motorRight;
     public Servo servoTest;
+    public Servo wrist;
     private ElapsedTime     runtime = new ElapsedTime();
 
     BNO055IMU imu;
@@ -74,6 +75,7 @@ public class minibot {
         lift = hwMap.dcMotor.get("lift");
         arm = hwMap.dcMotor.get("arm");
         servoTest = hwMap.servo.get("servo");
+        wrist = hwMap.servo.get("wrist");
 
 
 

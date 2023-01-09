@@ -71,12 +71,15 @@ public class MiniBotTeleop extends LinearOpMode{
 
 
 
-
-
             if (gamepad2.a) robot.servoTest.setPosition(0);
             if (gamepad2.b) robot.servoTest.setPosition(0.3);
             if (gamepad2.x) robot.servoTest.setPosition(0.7);
-            if (gamepad2.y) robot.servoTest.setPosition(0.1);
+            if (gamepad2.y) robot.servoTest.setPosition(1);
+
+            if (gamepad2.dpad_up) robot.wrist.setPosition(0);
+            if (gamepad2.dpad_right) robot.wrist.setPosition(0.3);
+            if (gamepad2.dpad_left) robot.wrist.setPosition(0.7);
+            if (gamepad2.dpad_down) robot.wrist.setPosition(1);
 
 
 
