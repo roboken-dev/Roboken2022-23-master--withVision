@@ -21,6 +21,7 @@ public class MiniBotTeleop extends LinearOpMode{
 
     private double speedControl = 0.5;
     private double turnControl = 0.5;
+    double wristPosition = 1;
     @Override
 
 
@@ -76,12 +77,21 @@ public class MiniBotTeleop extends LinearOpMode{
             if (gamepad2.x) robot.servoTest.setPosition(0.7);
             if (gamepad2.y) robot.servoTest.setPosition(1);
 
-            if (gamepad2.dpad_up) robot.wrist.setPosition(0);
-            if (gamepad2.dpad_right) robot.wrist.setPosition(0.3);
-            if (gamepad2.dpad_left) robot.wrist.setPosition(0.7);
-            if (gamepad2.dpad_down) robot.wrist.setPosition(1);
+            /*
 
-            robot.lift.setPower(gamepad2.left_stick_y*0.85);
+             */
+
+
+
+            if (gamepad2.dpad_up)  wristPosition = 0.0;
+            if (gamepad2.dpad_right) wristPosition = 0.4;
+            if (gamepad2.dpad_left) wristPosition = 0.45;
+            if (gamepad2.dpad_down) wristPosition = 0.7;
+            if(gamepad2.left_bumper) wristPosition= 0.6-Math.abs(gamepad2.right_stick_y)*0.6;
+            robot.wrist.setPosition(wristPosition);
+
+
+            robot.lift.setPower(gamepad2.left_stick_y*0.95);
 
 
 
