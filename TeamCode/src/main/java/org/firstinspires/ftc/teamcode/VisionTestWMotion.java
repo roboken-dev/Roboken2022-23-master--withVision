@@ -52,18 +52,24 @@ public class VisionTestWMotion extends LinearOpMode {
                 telemetry.addData("movement: ", "I will go left");
                 telemetry.update();
                 sleep(3000);
+                robot.encoderSideDrive(0.25,24,5,this);
+                robot.encoderForwardDrive(0.25,-24,5,this);
+
                 break;
 
             case RIGHT:
                 telemetry.addData("movement: ", "I will go right");
                 telemetry.update();
                 sleep(3000);
+                robot.encoderSideDrive(0.25,-24,5,this);
+                robot.encoderForwardDrive(0.25,-24,5,this);
                 break;
 
             case CENTER:
                 telemetry.addData("movement: ", "I will go to center");
                 telemetry.update();
                 sleep(3000);
+                robot.encoderForwardDrive(0.25,-24,5,this);
                 break;
 
         }
