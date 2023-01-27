@@ -16,5 +16,5 @@ public class WarehousePark extends LinearOpMode {
         waitForStart();
 
         robot.encoderSideDrive(0.25,20,5,this);
-        robot.encoderForwardDrive(0.25,20,5,this);
+
     }}

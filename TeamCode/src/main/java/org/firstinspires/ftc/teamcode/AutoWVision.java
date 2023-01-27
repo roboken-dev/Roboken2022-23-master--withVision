@@ -8,8 +8,8 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Signal Sleeve Test with motion")
-public class VisionTestWMotion extends LinearOpMode {
+@Autonomous(name = "AutoWVision")
+public class AutoWVision extends LinearOpMode {
 
     private SleeveDetection sleeveDetection;
     private OpenCvCamera camera;
@@ -52,24 +52,25 @@ public class VisionTestWMotion extends LinearOpMode {
                 telemetry.addData("movement: ", "I will go left");
                 telemetry.update();
                 sleep(3000);
+                robot.encoderForwardDrive(0.25,-3,5,this);
                 robot.encoderSideDrive(0.25,24,5,this);
-                robot.encoderForwardDrive(0.25,-24,5,this);
-
+                robot.encoderForwardDrive(0.25,-28,5,this);
                 break;
 
             case RIGHT:
                 telemetry.addData("movement: ", "I will go right");
                 telemetry.update();
                 sleep(3000);
+                robot.encoderForwardDrive(0.25,-3,5,this);
                 robot.encoderSideDrive(0.25,-24,5,this);
-                robot.encoderForwardDrive(0.25,-24,5,this);
+                robot.encoderForwardDrive(0.25,-28,5,this);
                 break;
 
             case CENTER:
                 telemetry.addData("movement: ", "I will go to center");
                 telemetry.update();
                 sleep(3000);
-                robot.encoderForwardDrive(0.25,-24,5,this);
+                robot.encoderForwardDrive(0.25,-30,5,this);
                 break;
 
         }

@@ -84,9 +84,9 @@ public class MiniBotTeleop extends LinearOpMode{
 
 
             if (gamepad2.dpad_up)  wristPosition = 0.0;
-            if (gamepad2.dpad_right) wristPosition = 0.4;
-            if (gamepad2.dpad_left) wristPosition = 0.45;
-            if (gamepad2.dpad_down) wristPosition = 0.7;
+            if (gamepad2.dpad_right) wristPosition = 0.5;
+            if (gamepad2.dpad_left) wristPosition = 0.6;
+            if (gamepad2.dpad_down) wristPosition = 1;
             if(gamepad2.left_bumper) wristPosition= 0.6-Math.abs(gamepad2.right_stick_y)*0.6;
             robot.wrist.setPosition(wristPosition);
 
